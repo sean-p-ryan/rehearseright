@@ -1,0 +1,14 @@
+{
+  "name": "rehearseright",
+  "version": "1.0.0",
+  "description": "An app for band rehearsals",
+  "main": "src/server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "export NODE_ENV=test&& jasmine"
+  },
+  "author": "Sean Ryan",
+  "license": "MIT"
+}
