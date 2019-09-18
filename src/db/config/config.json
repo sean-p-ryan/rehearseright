@@ -1,17 +1,21 @@
 {
   "development": {
-    "username": "root",
+    "username": "postgres",
     "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "database": "rehearseright-dev",
+    "host": "127.0.0.1",    
+    "dialect": "postgres",
+    "logging": false,
+    "operatorsAliases": false
   },
-  "test": {
-    "username": "root",
+  "test": {    
+    "username": "postgres",
     "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "database": "rehearseright-test",    
+    "host": "127.0.0.1",    
+    "dialect": "postgres",
+    "logging": false,
+    "operatorsAliases": false
   },
   "production": {
     "username": "root",
