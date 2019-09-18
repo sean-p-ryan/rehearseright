@@ -20,7 +20,10 @@
     "dependencies": {
         "dotenv": "^8.1.0",
         "ejs": "^2.5.7",
+        "express": "^4.17.1",
         "path": "^0.12.7",
-        "express": "^4.17.1"
+        "pg": "^7.4.1",
+        "pg-hstore": "^2.3.2",
+        "sequelize": "^4.32.6"
     }
 }
