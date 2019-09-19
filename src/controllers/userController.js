@@ -6,6 +6,7 @@ module.exports = {
         res.render("users/sign_up");
     },
     create(req, res, next) {
+        console.log("Here's the request body " + req.body)
         let newUser = {
             email: req.body.email,
             password: req.body.password,
