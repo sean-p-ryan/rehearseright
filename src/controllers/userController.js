@@ -4,6 +4,7 @@ const passport = require("passport");
 module.exports = {
     signUp(req, res, next) {
         res.render("users/sign_up");
+        res.redirect("/");
     },
     create(req, res, next) {
         console.log("Here's the request body " + req.body)
@@ -39,9 +40,9 @@ module.exports = {
             }
         })
     },
-    signOut(req, res, next){
+    signOut(req, res, next) {
         req.logout();
         req.flash("notice", "You've successfully signed out!");
         res.redirect("/");
-      }
+    }
 }
