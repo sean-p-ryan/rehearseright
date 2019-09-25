@@ -12,11 +12,13 @@
     <% include ./partials/navbar.ejs %>
 
         <!-- Page Content -->
-        <main class="container">
-            <% if(!currentUser) { %>
+        <main class="container">            
                 <!-- Jumbotron Header -->
+                <% if(currentUser) { %>
+                    <h1>Welcome to TuneTrapper,<%= currentUser.id %>  -- a one-stop shop for documenting the evolution of your music.</h1>
+                    <% } else { %>
                 <header class="jumbotron my-4">
-                    <h1 class="display-3">Welcome to TuneTrapper</h1>
+                    <h1 class="display-3">TuneTrapper</h1>
                     <p>
                         "What was the chord in the part with the thing right before the drums do that thing where it's..." </p>
                     <p>"What was the meloy I came up with in the shower today? It was like 'lah lah lahhh...' No, wait..."</p>
@@ -25,11 +27,7 @@
                     <p>Sign up for a free TuneTrapper account today, and never lose a tune again.</p>
                     <a href="/users/sign_up" class="btn btn-primary btn-lg">Make an account now</a>
                 </header>
-                <% } else { %>
-                    <!-- #2 -->
-                    <h1>Welcome to TuneTrapper!</h1>
-
-                    <% }%>
+                <% }%>
 
         </main>
         <!-- /.container -->
