@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../static/partials/head.ejs %>
+</head>
+
+<body>
+    <h1>Add a new tune</h1>
+    <p><em>Recording feature coming soon</em></p>
+    <form action="/songs/create" method="post" id="newSongForm">
+        <div>
+            <label for="name">Name: </label>
+            <input type="text" name="title" placeholder="Wudduya call it?" form="newSongForm">
+        </div>
+        <div>
+            <label for="artist">Artist: </label>
+            <input type="text" name="artist" placeholder="Artist/band" form="newSongForm">
+        </div>
+        <div>
+            <label for="notes">Notes: </label>
+            <textarea type="text" name="notes" placeholder="Say something about the tune" form="newSongForm"></textarea>
+        </div>
+        <button type="submit">Save</button>
+    </form>
+</body>
+
+</html>

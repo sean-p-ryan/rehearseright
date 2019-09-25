@@ -9,13 +9,12 @@ module.exports = {
         const hashedPassword = bcrypt.hashSync(newUser.password, salt);
 
         return User.create({
-                email: newUser.email,
-                password: hashedPassword,
-                first_name: newUser.first_name,
-                last_name: newUser.last_name
+                title: newSong.title,
+                notes: newSong.notes,
+                artist: newSong.artist
             })
-            .then((user) => {
-                callback(null, user);
+            .then((song) => {
+                callback(null, song);
             })
             .catch((err) => {
                 callback(err);

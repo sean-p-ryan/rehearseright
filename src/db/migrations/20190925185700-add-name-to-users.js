@@ -1,21 +1,15 @@
 'use strict';
 
 module.exports = {
-  up: (queryInterface, Sequelize) => {
-    return queryInterface.addColumn(
-      'Users',
-      'first_name',
-      Sequelize.STRING
-    )
-  },
+    up: (queryInterface, Sequelize) => {
+        return queryInterface.addColumn(
+            'Users',
+            'first_name',
+            Sequelize.STRING
+        )
+    },
 
-  down: (queryInterface, Sequelize) => {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.dropTable('users');
-    */
-  }
+    down: (queryInterface, Sequelize) => {
+        return queryInterface.removeColumn("Users", "last_name");
+    }
 };
