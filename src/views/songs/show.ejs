@@ -4,14 +4,15 @@
 <head>
     <% include ../static/partials/head.ejs %>
 </head>
+<% include ../static/partials/navbar.ejs %>
 
-<body>
-    <h1>
-        <%= song.title %>
-    </h1>
-    By:
-    <%= song.artist %> <br> Notes:
-        <%= song.notes %>
-</body>
+    <body>
+        <h1>
+            <%= song.title %>
+        </h1>
+        By:
+        <%= song.artist %> <br> Notes:
+            <%= song.notes %>
+    </body>
 
 </html>
