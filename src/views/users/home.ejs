@@ -19,18 +19,16 @@
                     <%= user.first_name %>! Take advantage of your one-stop shop for documenting the evolution of your music and <a href="/users/<%= currentUser.id %>/songs/new">trap your first tune now.</a></h1>
                 <% } else { %>
                     <p>Welcome back,
-                        <%= user.first_name %>.</p> Here are all of your tunes, and the notes you've written on them:</p>
+                        <%= user.first_name %>.</p> Here are all of your tunes:</p>
                     <% songs.forEach(song => { %>
                         <div>
-                            Title:
-                            <%= song.title %><br /> By:
-                                <%= song.artist %><br /> Notes:
-                                    <div>
-                                        <%= song.notes %>
-                                    </div>
+                            <a href="users/<%= user.id %>/songs/<%= song.id %>">
+                                <%= song.title %>
+                            </a>
                         </div>
-                        <% }) %>
-                            <% }%>
+                        <% }) 
+                    }
+                        %>
 
         </main>
         <!-- /.container -->

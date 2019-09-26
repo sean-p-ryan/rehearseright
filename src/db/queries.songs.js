@@ -25,5 +25,14 @@ module.exports = {
             .catch((err) => {
                 callback(err);
             })
+    },
+    getSongById(id, callback) {
+        return Song.findById(id)
+            .then(song => {
+                callback(null, song)
+            })
+            .catch((err) => {
+                callback(err);
+            })
     }
 }

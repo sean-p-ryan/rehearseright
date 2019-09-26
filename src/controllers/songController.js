@@ -28,5 +28,15 @@ module.exports = {
                 res.render("users/home")
             }
         })
+    },
+    show(req, res, next) {
+        let id = req.params.songId;
+        songQueries.getSongById(id, (err, song) => {
+            if (err) {
+                res.redirect(500, "static/index");
+            } else {
+                res.render("songs/show", { song })
+            }
+        })
     }
 }
