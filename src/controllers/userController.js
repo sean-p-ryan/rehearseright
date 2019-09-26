@@ -1,4 +1,5 @@
 const userQueries = require("../db/queries.users.js");
+const songQueries = require("../db/queries.songs.js")
 const passport = require("passport");
 
 module.exports = {
@@ -7,7 +8,6 @@ module.exports = {
         res.redirect("/");
     },
     create(req, res, next) {
-        console.log("Here's the request body " + req.body)
         let newUser = {
             email: req.body.email,
             password: req.body.password,
@@ -17,7 +17,6 @@ module.exports = {
         };
         userQueries.createUser(newUser, (err, user) => {
             if (err) {
-                console.log("Here's the error" + err)
                 req.flash("error", err);
                 res.redirect("/users/sign_up");
             } else {
@@ -34,17 +33,35 @@ module.exports = {
     signIn(req, res, next) {
         passport.authenticate("local")(req, res, function() {
             if (!req.user) {
-                console.log("In if block")
                 req.flash("notice", "Sign in failed. Please try again.")
                 res.redirect("/users/sign_in");
             } else {
-                console.log("In else block")
-                let user = req.user;
-                req.flash("notice", "You've successfully signed in!");
-                res.redirect("/");
+                userQueries.getIdFromEmail(req.body.email, (err, id) => {
+                    if (err) {
+                        req.flash("error", err)
+                        res.redirect("/users/sign_in");
+                    } else {
+                        req.flash("notice", "You've successfully signed in!");
+                        res.redirect(id + "/home");
+                    }
+                })
             }
         })
     },
+    home(req, res, next) {
+        userQueries.getUser(req.params.id, (err, result) => {
+
+            if (err || result.user === undefined) {
+                req.flash("notice", "No user found with that ID.");
+                res.redirect("/");
+            } else {
+                res.render("users/home", {...result });
+            }
+        });
+    },
+
+    // userQueries.getUser
+    // res.render("users/home")    
     signOut(req, res, next) {
         req.logout();
         req.flash("notice", "You've successfully signed out!");

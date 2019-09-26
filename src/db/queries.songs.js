@@ -1,9 +1,8 @@
 const Song = require("./models").Song;
 
 module.exports = {
-    getAllSongs(callback) {
-        console.log("in getAllSongs")
-        return Song.findAll()
+    getUserSongs(userId, callback) {
+        return Song.findAll({ where: { id: userId } })
             .then((songs) => {
                 console.log("in then. Here are the songs " + songs)
                 callback(null, songs);
@@ -14,11 +13,11 @@ module.exports = {
             })
     },
     create(newSong, callback) {
-
         return Song.create({
                 title: newSong.title,
                 artist: newSong.artist,
-                notes: newSong.notes
+                notes: newSong.notes,
+                userId: newSong.userId
             })
             .then((song) => {
                 callback(null, song);

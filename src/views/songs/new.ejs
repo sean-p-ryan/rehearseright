@@ -6,9 +6,10 @@
 </head>
 
 <body>
-    <h1>Add a new tune</h1>
+    <h1>Add a new tune
+    </h1>
     <p><em>Recording feature coming soon</em></p>
-    <form action="/songs/create" method="post" id="newSongForm">
+    <form action="/users/<%= currentUser.id %>/songs/create" method="post" id="newSongForm">
         <div>
             <label for="name">Name: </label>
             <input type="text" name="title" placeholder="Wudduya call it?" form="newSongForm">
