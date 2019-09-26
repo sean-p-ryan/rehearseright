@@ -8,24 +8,25 @@ const flash = require("express-flash");
 const passportConfig = require("./passport-config");
 
 module.exports = {
-  init(app, express){
-      app.set("views", viewsFolder);
-      app.set("view engine", "ejs");
-      app.use(bodyParser.urlencoded({ extended: true }));
-      app.use(express.static(path.join(__dirname, "..", "assets")));
-      app.use(expressValidator());
-      app.use(session({
-        secret: "this is the secret",
-        resave: false,
-        saveUninitialized: false,
-        cookie: { maxAge: 1.21e+9 } //set cookie to expire in 14 days
-      }));
-      app.use(flash());
-      passportConfig.init(app);
+    init(app, express) {
+        app.set("views", viewsFolder);
+        app.set("view engine", "ejs");
+        app.use(bodyParser.urlencoded({ extended: true }));
+        app.use(express.static(path.join(__dirname, "..", "assets")));
+        app.use(expressValidator());
+        app.use(session({
+            secret: "this is the secret",
+            resave: false,
+            saveUninitialized: false,
+            cookie: { maxAge: 1.21e+9 } //set cookie to expire in 14 days
+        }));
+        app.use(flash());
 
-      app.use((req,res,next) => {
-        res.locals.currentUser = req.user;
-        next();
-      })
-  }
+        passportConfig.init(app);
+
+        app.use((req, res, next) => {
+            res.locals.currentUser = req.user;
+            next();
+        });
+    }
 };

@@ -22,13 +22,16 @@
                         <%= user.first_name %>.</p> Here are all of your tunes:</p>
                     <% songs.forEach(song => { %>
                         <div>
-                            <a href="/users/<%= currentUser.id %>/songs/<%= song.id %>">
+                            <a href="/users/<%= user.id %>/songs/<%= song.id %>">
                                 <%= song.title %>
                             </a>
                         </div>
-                        <% }) 
-                    }
-                        %>
+                        <% }) %>
+                            <br>
+                            <br>
+                            <h1><a href="/users/<%= currentUser.id %>/songs/new">TRAP ANOTHER TUNE.</a></h1>
+                            <% } %>
+
 
         </main>
         <!-- /.container -->
