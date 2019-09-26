@@ -18,9 +18,11 @@
                 <h1>Welcome to TuneTrapper,
                     <%= user.first_name %>! Take advantage of your one-stop shop for documenting the evolution of your music and <a href="/users/<%= currentUser.id %>/songs/new">trap your first tune now.</a></h1>
                 <% } else { %>
-                    Hey there!
-                    <%= songs[0].title %>!
-                        <% }%>
+                    <p>Welcome back,
+                        <%= user.first_name %>.</p> Here are all of your tunes, and the notes you've written on them:
+
+
+                    <% }%>
 
         </main>
         <!-- /.container -->
