@@ -1,4 +1,5 @@
 const songQueries = require("../db/queries.songs.js")
+const userController = require("./userController");
 
 module.exports = {
     index(req, res, next) {
@@ -14,6 +15,7 @@ module.exports = {
         res.render("songs/new")
     },
     create(req, res, next) {
+        let id = req.params.id;
         let newSong = {
             title: req.body.title,
             artist: req.body.artist,
@@ -24,8 +26,7 @@ module.exports = {
             if (err) {
                 res.redirect(500, "static/index");
             } else {
-                console.log("In else, song index")
-                res.render("users/home")
+                res.redirect("/users/" + id + "/home")
             }
         })
     },
