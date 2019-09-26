@@ -14,7 +14,7 @@
         <!-- Page Content -->
         <main class="container">
             <!-- Jumbotron Header -->
-            <% if(currentUser && (!songs)) { %>
+            <% if(!songs) { %>
                 <h1>Welcome to TuneTrapper,
                     <%= user.first_name %>! Take advantage of your one-stop shop for documenting the evolution of your music and <a href="/users/<%= currentUser.id %>/songs/new">trap your first tune now.</a></h1>
                 <% } else { %>
